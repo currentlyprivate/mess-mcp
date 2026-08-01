@@ -44,7 +44,7 @@ keys, for scripts and CI.
 
 ## The surface
 
-Four tools, one prompt:
+Seven tools, one prompt:
 
 | | |
 |---|---|
@@ -52,7 +52,22 @@ Four tools, one prompt:
 | `search_accounts` | Find accounts by project, provider, email, plan — the orientation call when picking a project back up. |
 | `list_accounts` | The whole ledger in one call. |
 | `update_account` | Correct a row, record an owner, mark an account cancelled. There is no delete — history is kept. |
+| `confirm_project_alias` | Record the human's answer that one project label belongs to another. Agents see a directory name, not a project; two checkouts of one repo look like two projects and a six-repo estate looks like six. Only ever from their answer — never guessed from similar names. |
+| `record_access` | Who can still get into an account — a different question from who owns it, and the one that catches the contractor who left in March whose login still works. Team plan. |
+| `list_access` | Read that back, per account or across the ledger. Team plan. |
 | `sort_out_my_mess` (prompt) | The dig: a field-tested procedure that inventories the accounts this machine and your projects touch and backfills the ledger. In Claude Code: `/mcp__mess__sort_out_my_mess`. |
+
+Two things an agent cannot work out for itself, and so never guesses:
+
+- **Project boundaries.** From a session you see `${PWD##*/}` — a directory
+  name. Whether two labels are one project lives in the human's head, and
+  name similarity does not recover it (on the ledger this was built against,
+  1 of 6 similar-looking clusters was a real match). So groupings come only
+  from a confirmed answer, and rows keep their labels either way — reads
+  resolve, nothing is rewritten.
+- **Access breadth.** From inside a session you can prove a key works; you
+  can never see who else holds one. So no records means *nothing recorded* —
+  never "nobody else has access."
 
 Optional Claude Code hooks (one paste, served from the app): a
 session-start brief — every session opens knowing what the current
@@ -68,4 +83,4 @@ the dig procedure and the hook nudges. If you'd rather your agent didn't
 volunteer writes, don't wire it in.
 
 Free to 20 accounts. Teams share one ledger (scoped digs, personal stays
-personal). Questions: hello@mess.fyi.
+personal) and add access breadth. Questions: hello@mess.fyi.
