@@ -84,3 +84,10 @@ volunteer writes, don't wire it in.
 
 Free to 20 accounts. Teams share one ledger (scoped digs, personal stays
 personal) and add access breadth. Questions: hello@mess.fyi.
+
+## License
+
+This repository — the setup docs above — is MIT licensed. It is not the
+server: MESS itself is a hosted service and its source is not public.
+What the server sends your agent is, though, published verbatim at
+[mess.fyi/mcp](https://mess.fyi/mcp).
